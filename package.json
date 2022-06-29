@@ -1,9 +1,14 @@
 {
+  "name": "jiosaavn_api",
+    "version": "2.0.0",
+    "description": "Unofficial Serverless JioSaavn API written in Javascript",
+    "main": "api/index.js",
   "dependencies": {
     "axios": "^0.21.1",
     "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
-  }
+  },
+  "author": "FireVideo"
 }
