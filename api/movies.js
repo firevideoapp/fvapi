@@ -18,13 +18,8 @@ module.exports = async (req, res) => {
         .then(async function (response) {
             var data = JSON.parse(JSON.stringify(response.data))
             var songRes = []
-            var loadNoOfItems = data.length;
 
-            if (data.length >= reqQueryAdult) {
-                loadNoOfItems = reqQueryAdult;
-            }
-
-            for (i = 0; i < loadNoOfItems; i++) {
+            for (i = 0; i < data.length; i++) {
                 if (reqQueryCategory === 'lg') {
                     if (data[i].movieLang.toLowerCase().includes(reqQueryVal)) {
                         addMovie(songRes, data[i], reqQueryAdult)
@@ -43,8 +38,8 @@ module.exports = async (req, res) => {
         })
 }
 
-function addMovie(songRes, d, adult) {
-    if (Boolean(d.adult) === adult) {
+function addMovie(songRes, d, adult, noOfItems) {
+    if (Boolean(d.adult) === adult && noOfItems <= songRes.length) {
         songRes.push({
             dateAdded: d.dateAdded,
             provider: d.provider,
