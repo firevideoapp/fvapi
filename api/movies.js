@@ -25,6 +25,6 @@ module.exports = async (req, res) => {
             songRes.json(data[0])
         })
         .catch(function (error) {
-            res.json({ result: "false" })
+            res.json({ result: "false", "error": error })
         })
 }
