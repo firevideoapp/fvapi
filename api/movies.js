@@ -5,7 +5,7 @@ const axios = require("axios").default;
 module.exports = async (req, res) => {
     var reqQueryCategory = req.query.category;
     var reqQueryVal = req.query.value;
-    var reqQueryAdult = req.query.adult;
+    var reqQueryAdult = Boolean(req.query.adult);
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate")
     res.setHeader("Made-By", "FireVideo")
