@@ -18,27 +18,26 @@ module.exports = async (req, res) => {
             for (i = 0; i < data.length; i++) {
                 if (reqQueryCategory === 'lg') {
                     if (reqQueryVal === data[i].movieLang) {
-                        alert("dsadsadsa")
+                        songRes.push({
+                            dateAdded: data[i].dateAdded,
+                            provider: data[i].provider,
+                            tmdb: data[i].tmdb,
+                            adult: data[i].adult,
+                            contentId: data[i].contentId,
+                            movieName: data[i].movieName,
+                            movieLang: data[i].movieLang,
+                            movieImage: data[i].movieImage,
+                            movieArt: data[i].movieArt,
+                            movieGenre: data[i].movieGenre,
+                            keywords: data[i].keywords,
+                            movieStory: data[i].movieStory,
+                            movieUrl: data[i].movieUrl,
+                            drmLicense: data[i].drmLicense,
+                            sdServer: data[i].sdServer,
+                            hdServer: data[i].hdServer,
+                            fhdServer: data[i].fhdServer
+                        })
                     }
-                    songRes.push({
-                        dateAdded: data[i].dateAdded,
-                        provider: data[i].provider,
-                        tmdb: data[i].tmdb,
-                        adult: data[i].adult,
-                        contentId: data[i].contentId,
-                        movieName: data[i].movieName,
-                        movieLang: data[i].movieLang,
-                        movieImage: data[i].movieImage,
-                        movieArt: data[i].movieArt,
-                        movieGenre: data[i].movieGenre,
-                        keywords: data[i].keywords,
-                        movieStory: data[i].movieStory,
-                        movieUrl: data[i].movieUrl,
-                        drmLicense: data[i].drmLicense,
-                        sdServer: data[i].sdServer,
-                        hdServer: data[i].hdServer,
-                        fhdServer: data[i].fhdServer
-                    })
                 }
             }
 
