@@ -13,14 +13,28 @@ module.exports = async (req, res) => {
         .then(async function (response) {
             var data = JSON.parse(JSON.stringify(response.data))
             var songRes = []
-            // for (i = 0; i < data.length; i++) {
-
-            // }
-
-            songRes.push({
-                id: data[0].contentId,
-                name: data[0].movieName
-            })
+            
+            for (i = 0; i < data.length; i++) {
+                songRes.push({
+                    dateAdded: data[i].dateAdded,
+                    provider: data[i].provider,
+                    tmdb: data[i].tmdb,
+                    adult: data[i].adult,
+                    contentId: data[i].contentId,
+                    movieName: data[i].movieName,
+                    movieLang: data[i].movieLang,
+                    movieImage: data[i].movieImage,
+                    movieArt: data[i].movieArt,
+                    movieGenre: data[i].movieGenre,
+                    keywords: data[i].keywords,
+                    movieStory: data[i].movieStory,
+                    movieUrl: data[i].movieUrl,
+                    drmLicense: data[i].drmLicense,
+                    sdServer: data[i].sdServer,
+                    hdServer: data[i].hdServer,
+                    fhdServer: data[i].fhdServer
+                })
+            }
 
             res.json(songRes)
         })
