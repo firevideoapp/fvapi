@@ -1,14 +1,6 @@
 {
-  "name": "fvapi",
-  "version": "1.0",
-  "description": "Unofficial Serverless JioSaavn API written in Javascript",
-  "main": "api/index.js",
   "scripts": {
-    "start": "vercel dev",
-    "pretty": "prettier --write \"./**/*.{js,ts,json}\"",
-    "lint": "eslint . --ext \".ts\"",
-    "lint:fix": "eslint --fix --ext .js,.ts .",
-    "deploy": "vercel deploy --prod"
+    "build": "vercel deploy --prod"
   },
   "dependencies": {
     "axios": "^0.21.1",
