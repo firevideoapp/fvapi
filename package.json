@@ -1,13 +1,6 @@
 {
-  "scripts": {
-    "build": "vercel deploy --prod"
-  },
   "dependencies": {
-    "axios": "^0.21.1",
-    "node-fetch": "^2.6.7"
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "axios": "^0.21.1"
   },
   "author": "FireVideo"
 }
