@@ -1,4 +1,4 @@
-const axios = require("axios").default;
+// const axios = require("axios").default;
 
 // module.exports = async (req, res) => {
 //     var reqQuery = req.query.query;
