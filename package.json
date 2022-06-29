@@ -1,8 +1,12 @@
 {
   "name": "jiosaavn_api",
-    "version": "2.0.0",
-    "description": "Unofficial Serverless JioSaavn API written in Javascript",
-    "main": "api/index.js",
+  "version": "2.0.0",
+  "description": "Unofficial Serverless JioSaavn API written in Javascript",
+  "main": "api/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firevideoapp/fvapi.git"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "node-fetch": "^2.6.7"
