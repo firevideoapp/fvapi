@@ -21,11 +21,11 @@ module.exports = async (req, res) => {
             for (i = 0; i < data.length; i++) {
                 if (reqQueryCategory === 'lg') {
                     if (data[i].movieLang.toLowerCase().includes(reqQueryVal)) {
-                        addMovie(songRes, data[i], adult)
+                        addMovie(songRes, data[i], reqQueryAdult)
                     }
                 } else if (reqQueryCategory === 'gen') {
                     if (data[i].movieGenre.toLowerCase().includes(reqQueryVal)) {
-                        addMovie(songRes, data[i], adult)
+                        addMovie(songRes, data[i], reqQueryAdult)
                     }
                 }
             }
