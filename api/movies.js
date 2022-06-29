@@ -17,12 +17,12 @@ module.exports = async (req, res) => {
 
             // }
 
-            // songRes.push({
-            //     id: data[0].contentId,
-            //     name: data[0].movieName
-            // })
+            songRes.push({
+                id: data[0].contentId,
+                name: data[0].movieName
+            })
 
-            songRes.json(data[0])
+            res.json(songRes)
         })
         .catch(function (error) {
             res.json({ result: "false", "error": error })
