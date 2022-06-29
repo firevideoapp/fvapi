@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     var reqQueryCategory = req.query.category;
     var reqQueryVal = req.query.value;
     var reqQueryAdult = Boolean(req.query.adult);
-    var reqQueryNoOfItems = req.query.n;
+    var reqQueryNoOfItems = Number(req.query.n);
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate")
     res.setHeader("Made-By", "FireVideo")
