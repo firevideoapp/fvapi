@@ -22,11 +22,11 @@ module.exports = async (req, res) => {
             for (i = 0; i < data.length; i++) {
                 if (reqQueryCategory === 'lg') {
                     if (data[i].movieLang.toLowerCase().includes(reqQueryVal)) {
-                        addMovie(songRes, data[i], reqQueryAdult)
+                        addMovie(songRes, data[i], reqQueryAdult, reqQueryNoOfItems)
                     }
                 } else if (reqQueryCategory === 'gen') {
                     if (data[i].movieGenre.toLowerCase().includes(reqQueryVal)) {
-                        addMovie(songRes, data[i], reqQueryAdult)
+                        addMovie(songRes, data[i], reqQueryAdult, reqQueryNoOfItems)
                     }
                 }
             }
@@ -39,27 +39,25 @@ module.exports = async (req, res) => {
 }
 
 function addMovie(songRes, d, adult, noOfItems) {
-    if (Boolean(d.adult) === adult) {
-        for (i = 0; i < noOfItems; i++) {
-            songRes.push({
-                dateAdded: d.dateAdded,
-                provider: d.provider,
-                tmdb: d.tmdb,
-                adult: d.adult,
-                contentId: d.contentId,
-                movieName: d.movieName,
-                movieLang: d.movieLang,
-                movieImage: d.movieImage,
-                movieArt: d.movieArt,
-                movieGenre: d.movieGenre,
-                keywords: d.keywords,
-                movieStory: d.movieStory,
-                movieUrl: d.movieUrl,
-                drmLicense: d.drmLicense,
-                sdServer: d.sdServer,
-                hdServer: d.hdServer,
-                fhdServer: d.fhdServer
-            })
-        }
+    if (Boolean(d.adult) === adult && songRes.length <= noOfItems) {
+        songRes.push({
+            dateAdded: d.dateAdded,
+            provider: d.provider,
+            tmdb: d.tmdb,
+            adult: d.adult,
+            contentId: d.contentId,
+            movieName: d.movieName,
+            movieLang: d.movieLang,
+            movieImage: d.movieImage,
+            movieArt: d.movieArt,
+            movieGenre: d.movieGenre,
+            keywords: d.keywords,
+            movieStory: d.movieStory,
+            movieUrl: d.movieUrl,
+            drmLicense: d.drmLicense,
+            sdServer: d.sdServer,
+            hdServer: d.hdServer,
+            fhdServer: d.fhdServer
+        })
     }
 }
