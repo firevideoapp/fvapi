@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
                         addMovie(songRes, data[i])
                     }
                 } else if (reqQueryCategory === 'gen') {
-                    if (reqQueryVal === data[i].movieGenre.toLowerCase()) {
+                    if (reqQueryVal.includes(data[i].movieGenre.toLowerCase())) {
                         addMovie(songRes, data[i])
                     }
                 }
