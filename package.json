@@ -1,6 +1,6 @@
 {
-  "name": "jiosaavn_api",
-  "version": "2.0.0",
+  "name": "fvapi",
+  "version": "1.0",
   "description": "Unofficial Serverless JioSaavn API written in Javascript",
   "main": "api/index.js",
   "scripts": {
