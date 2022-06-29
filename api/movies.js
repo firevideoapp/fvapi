@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
             
             for (i = 0; i < data.length; i++) {
                 if (reqQueryCategory === 'lg') {
-                    if (reqQueryVal === data[i].movieLang) {
+                    if (reqQueryVal === 'values') {
                         songRes.push({
                             dateAdded: data[i].dateAdded,
                             provider: data[i].provider,
