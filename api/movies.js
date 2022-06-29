@@ -1,3 +1,5 @@
+const song = require("./song");
+
 const axios = require("axios").default;
 
 module.exports = async (req, res) => {
@@ -18,25 +20,7 @@ module.exports = async (req, res) => {
             for (i = 0; i < data.length; i++) {
                 if (reqQueryCategory === 'lg') {
                     if (reqQueryVal === data[i].movieLang.toLowerCase()) {
-                        songRes.push({
-                            dateAdded: data[i].dateAdded,
-                            provider: data[i].provider,
-                            tmdb: data[i].tmdb,
-                            adult: data[i].adult,
-                            contentId: data[i].contentId,
-                            movieName: data[i].movieName,
-                            movieLang: data[i].movieLang,
-                            movieImage: data[i].movieImage,
-                            movieArt: data[i].movieArt,
-                            movieGenre: data[i].movieGenre,
-                            keywords: data[i].keywords,
-                            movieStory: data[i].movieStory,
-                            movieUrl: data[i].movieUrl,
-                            drmLicense: data[i].drmLicense,
-                            sdServer: data[i].sdServer,
-                            hdServer: data[i].hdServer,
-                            fhdServer: data[i].fhdServer
-                        })
+                        addMovie(data[i])
                     }
                 }
             }
@@ -46,4 +30,26 @@ module.exports = async (req, res) => {
         .catch(function (error) {
             res.json({ result: "false", "error": error })
         })
+}
+
+function addMovie(data) {
+    songRes.push({
+        dateAdded: data.dateAdded,
+        provider: data.provider,
+        tmdb: data.tmdb,
+        adult: data.adult,
+        contentId: data.contentId,
+        movieName: data.movieName,
+        movieLang: data.movieLang,
+        movieImage: data.movieImage,
+        movieArt: data.movieArt,
+        movieGenre: data.movieGenre,
+        keywords: data.keywords,
+        movieStory: data.movieStory,
+        movieUrl: data.movieUrl,
+        drmLicense: data.drmLicense,
+        sdServer: data.sdServer,
+        hdServer: data.hdServer,
+        fhdServer: data.fhdServer
+    })
 }
