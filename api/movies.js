@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
 }
 
 function addMovie(songRes, d, adult, noOfItems) {
-    if (Boolean(d.adult) === adult && noOfItems <= songRes.length) {
+    if (Boolean(d.adult) === adult) {
         songRes.push({
             dateAdded: d.dateAdded,
             provider: d.provider,
