@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
             //     name: data[0].movieName
             // })
 
-            songRes.push(data)
+            songRes.json(data[0])
         })
         .catch(function (error) {
             res.json({ result: "false" })
