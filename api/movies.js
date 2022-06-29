@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
     var reqQueryCategory = req.query.category;
     var reqQueryVal = req.query.value;
     var reqQueryAdult = Boolean(req.query.adult);
+    var reqQueryNoOfItems = req.query.n;
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate")
     res.setHeader("Made-By", "FireVideo")
@@ -17,8 +18,13 @@ module.exports = async (req, res) => {
         .then(async function (response) {
             var data = JSON.parse(JSON.stringify(response.data))
             var songRes = []
+            var loadNoOfItems = data.length;
 
-            for (i = 0; i < data.length; i++) {
+            if (data.length >= reqQueryAdult) {
+                loadNoOfItems = reqQueryAdult;
+            }
+
+            for (i = 0; i < loadNoOfItems; i++) {
                 if (reqQueryCategory === 'lg') {
                     if (data[i].movieLang.toLowerCase().includes(reqQueryVal)) {
                         addMovie(songRes, data[i], reqQueryAdult)
