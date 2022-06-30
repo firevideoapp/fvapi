@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
                     hdServer: data[i].hdServer,
                     fhdServer: data[i].fhdServer
                 })
-                shuffle(tempMovieRes)
+                tempMovieRes = shuffle(tempMovieRes)
                 if (reqQueryCategory === 'lg') {
                     if (tempMovieRes[i].movieLang.toLowerCase().includes(reqQueryVal)) {
                         addMovie(songRes, data[i], reqQueryAdult, data.length, reqQueryNoOfItems)
@@ -55,6 +55,17 @@ module.exports = async (req, res) => {
         .catch(function (error) {
             res.json({ result: "false", "error": error })
         })
+}
+
+function shuffle (arr) {
+    var j, x, index;
+    for (index = arr.length - 1; index > 0; index--) {
+        j = Math.floor(Math.random() * (index + 1));
+        x = arr[index];
+        arr[index] = arr[j];
+        arr[j] = x;
+    }
+    return arr;
 }
 
 function addMovie(songRes, d, adult, totalItems, noOfItems) {
