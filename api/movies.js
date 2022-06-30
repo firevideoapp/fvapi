@@ -38,7 +38,7 @@ module.exports = async (req, res) => {
                     hdServer: data[i].hdServer,
                     fhdServer: data[i].fhdServer
                 })
-                tempMovieRes.sort(() => Math.random() - 0.5)
+                shuffle(tempMovieRes)
                 if (reqQueryCategory === 'lg') {
                     if (tempMovieRes[i].movieLang.toLowerCase().includes(reqQueryVal)) {
                         addMovie(songRes, data[i], reqQueryAdult, data.length, reqQueryNoOfItems)
