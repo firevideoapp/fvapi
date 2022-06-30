@@ -38,26 +38,28 @@ module.exports = async (req, res) => {
 
 function addMovie(songRes, d, adult, totalItems, noOfItems) {
     if (noOfItems <= totalItems && songRes.length < noOfItems) {
-        if (Boolean(d.adult) === adult) {
-            songRes.push({
-                dateAdded: d.dateAdded,
-                provider: d.provider,
-                tmdb: d.tmdb,
-                adult: d.adult,
-                contentId: d.contentId,
-                movieName: d.movieName,
-                movieLang: d.movieLang,
-                movieImage: d.movieImage,
-                movieArt: d.movieArt,
-                movieGenre: d.movieGenre,
-                keywords: d.keywords,
-                movieStory: d.movieStory,
-                movieUrl: d.movieUrl,
-                drmLicense: d.drmLicense,
-                sdServer: d.sdServer,
-                hdServer: d.hdServer,
-                fhdServer: d.fhdServer
-            })
+        if (Boolean(d.adult) === true) {
+            if (adult === true) {
+                songRes.push({
+                    dateAdded: d.dateAdded,
+                    provider: d.provider,
+                    tmdb: d.tmdb,
+                    adult: d.adult,
+                    contentId: d.contentId,
+                    movieName: d.movieName,
+                    movieLang: d.movieLang,
+                    movieImage: d.movieImage,
+                    movieArt: d.movieArt,
+                    movieGenre: d.movieGenre,
+                    keywords: d.keywords,
+                    movieStory: d.movieStory,
+                    movieUrl: d.movieUrl,
+                    drmLicense: d.drmLicense,
+                    sdServer: d.sdServer,
+                    hdServer: d.hdServer,
+                    fhdServer: d.fhdServer
+                })
+            }
         } else {
             songRes.push({
                 dateAdded: d.dateAdded,
